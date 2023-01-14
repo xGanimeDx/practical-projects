@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+:root {
+  --white-color: #f9f9f9;
+  --black-color: #1a1a1a;
+  --red-color: #df2666;
+  --gray-color: #4d4c4c;
+  --green-color: #26dfae;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: var(--black-color);
+  color: var(--white-color);
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+.textbox {
+  position: relative;
+}
+
+.textbox input {
+  width: 260px;
+  height: 64px;
+  border: 1px solid var(--red-color);
+  border-radius: 6px;
+  background: transparent;
+  padding: 0 20px 0 56px;
+  font-size: 17px;
+  font-family: inherit;
+  color: var(--white-color);
+  outline: none;
+}
+
+.textbox input:focus ~ .icon {
+  opacity: 1;
+}
+
+.textbox input::placeholder {
+  color: var(--gray-color);
+}
+
+.textbox input:valid {
+  border-color: var(--green-color);
+}
+
+.textbox input:valid,
+.textbox input:valid ~ :is(.asterix, .icon) {
+  animation: none;
+}
+
+.textbox :is(input:valid) ~ .asterix {
+  opacity: 0;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    translate: 0;
+  }
+  25% {
+    translate: 8px 0;
+  }
+  75% {
+    translate: -8px 0;
+  }
+}
+
+.textbox .asterix {
+  position: absolute;
+  top: 21px;
+  right: 20px;
+  font-size: 22px;
+  pointer-events: none;
+  color: var(--red-color);
+}
+
+.textbox .icon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  margin-top: -12px;
+  opacity: 0.5;
+}
+
+.textbox input,
+.textbox .icon,
+.textbox .asterix {
+  animation: shake 0.1635s 0s 3;
+}
