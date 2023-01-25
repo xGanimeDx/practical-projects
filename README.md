@@ -1,2 +1,2 @@
-# copy-projects
-Not mine projects copies
+# practical-projects
+Practical projects adapted by me
